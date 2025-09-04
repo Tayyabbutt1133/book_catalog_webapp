@@ -28,7 +28,8 @@ export async function GET() {
     } catch (error) {
 
         return NextResponse.json({
-            sucess: false
+            sucess: false,
+            message : error
         }, {
             status: StatusCodes.BAD_GATEWAY
         })
