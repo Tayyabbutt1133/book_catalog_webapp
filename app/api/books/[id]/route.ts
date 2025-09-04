@@ -1,15 +1,16 @@
-import { NextRequest, NextResponse } from "next/server"
-import { StatusCodes } from "http-status-codes"
-import { prisma } from "@/app/utils/prisma"
+import { NextRequest, NextResponse } from "next/server";
+import { StatusCodes } from "http-status-codes";
+import { prisma } from "@/app/utils/prisma";
 
 export async function GET(
     req: NextRequest,
-    { params }: { params: { id: string } }
+    context: { params: { id: string } }
 ) {
     try {
-        const id = Number(params.id);
+        const id = Number(context.params.id);
+
         const bookbyid = await prisma.book.findUnique({
-            where: { id }
+            where: { id },
         });
 
         return NextResponse.json(
@@ -26,13 +27,13 @@ export async function GET(
 
 export async function DELETE(
     req: NextRequest,
-    { params }: { params: { id: string } }
+    context: { params: { id: string } }
 ) {
     try {
-        const id = Number(params.id);
+        const id = Number(context.params.id);
 
         await prisma.book.delete({
-            where: { id }
+            where: { id },
         });
 
         return NextResponse.json(
