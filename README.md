@@ -1,3 +1,4 @@
+![Screenshot 2025-09-04 232204](https://github.com/user-attachments/assets/f7e282e7-2a04-46e0-9b60-36aac59a04be)
 # Bookify - Personal Book Catalog App
 
 A  full-stack book management application built with latest Nextjs 15, featuring Google OAuth authentication, CRUD operations.
