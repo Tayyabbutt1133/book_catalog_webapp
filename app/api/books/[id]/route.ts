@@ -4,50 +4,45 @@ import { prisma } from "@/app/utils/prisma"
 
 export async function GET(
     req: NextRequest,
-    { params }: { params: Promise<{ id: string }> }
+    { params }: { params: { id: string } }
 ) {
     try {
-        const resolvedParams = await params
-        const id = Number(resolvedParams.id)
+        const id = Number(params.id);
         const bookbyid = await prisma.book.findUnique({
-            where: {
-                id
-            }
-        })
+            where: { id }
+        });
 
-        return NextResponse.json({
-            message: "Success",
-            data: bookbyid
-        }, { status: StatusCodes.OK })
-
+        return NextResponse.json(
+            { message: "Success", data: bookbyid },
+            { status: StatusCodes.OK }
+        );
     } catch (error) {
-        return NextResponse.json({
-            message: "Error Occurred"
-        }, { status: StatusCodes.INTERNAL_SERVER_ERROR })
+        return NextResponse.json(
+            { message: "Error Occurred" },
+            { status: StatusCodes.INTERNAL_SERVER_ERROR }
+        );
     }
 }
 
 export async function DELETE(
     req: NextRequest,
-    { params }: { params: Promise<{ id: string }> }
+    { params }: { params: { id: string } }
 ) {
     try {
-        const resolvedParams = await params
-        const id = Number(resolvedParams.id)
+        const id = Number(params.id);
 
         await prisma.book.delete({
-            where: {
-                id
-            }
-        })
+            where: { id }
+        });
 
-        return NextResponse.json({
-            message: "Successfully Deleted",
-        }, { status: StatusCodes.OK })
-
+        return NextResponse.json(
+            { message: "Successfully Deleted" },
+            { status: StatusCodes.OK }
+        );
     } catch (error) {
-        return NextResponse.json({
-            message: "Error Occurred"
-        }, { status: StatusCodes.INTERNAL_SERVER_ERROR })
+        return NextResponse.json(
+            { message: "Error Occurred" },
+            { status: StatusCodes.INTERNAL_SERVER_ERROR }
+        );
     }
 }
