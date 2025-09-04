@@ -6,7 +6,6 @@ import React from 'react'
 const Landingweb = () => {
   return (
     <>
-        <Navbar />
         <Hero />
         <Footer />
     </>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ToastContainer } from 'react-toastify'
 import { Providers } from "./components/authentication/Providers";
+import Navbar from "./components/landingpage/Navbar";
 
 
 
@@ -18,11 +19,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={""}
-      >
+      <body>
         <Providers>
-          {children}
+          <div className={"bg-gradient-to-r from-black via-gray-900  to-black min-h-screen"}>
+            <Navbar />
+            {children}
+          </div>
         </Providers>
         <ToastContainer />
       </body>
