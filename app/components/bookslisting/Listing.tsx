@@ -11,7 +11,7 @@ const Listing = () => {
 
     const fetchBooks = async () => {
         const res = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}api/books`);
-        const count = res.data.books.length 
+        const count = res.data.books.length
 
         setBooks(res.data.books);
         setBookscount(count);
@@ -30,7 +30,7 @@ const Listing = () => {
         <main className="p-6">
             <div className="flex sm:flex-row flex-col justify-between items-center">
                 <h1 className="text-2xl text-white font-bold mb-4">Books</h1>
-                <h1 className={`${lexendDeca.className}`}>{`Current Available books on Platform : ${bookscount}`}</h1>
+                <h1 className={`${lexendDeca.className} text-white`}>{`Current Available books on Platform : ${bookscount}`}</h1>
             </div>
             <BookCard list_books={books} refreshbooks={fetchBooks} />
         </main>

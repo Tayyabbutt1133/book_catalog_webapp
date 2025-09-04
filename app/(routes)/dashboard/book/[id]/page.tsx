@@ -27,7 +27,7 @@ export default function Page() {
 
     return (
         <div className="max-w-3xl mx-auto my-6 p-8 rounded-3xl shadow-lg border border-slate-800">
-            <div className="w-full h-64 text-white sm:h-80 md:h-96 bg-slate-800 rounded-2xl mb-6 flex items-center justify-center text-6xl">
+            <div className="w-full h-56 text-white  bg-slate-800 rounded-2xl mb-6 flex items-center justify-center text-6xl">
                 <BiBook size={90} />
             </div>
             <div className="space-y-4">

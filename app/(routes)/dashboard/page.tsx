@@ -5,7 +5,7 @@ import React from 'react'
 const page = () => {
     return (
         <>
-            <div className='mx-4 my-4'>
+            <div className='mx-4'>
                 <Button />
                 <Listing />
             </div>

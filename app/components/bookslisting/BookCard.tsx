@@ -39,36 +39,43 @@ const BookCard = ({ list_books, refreshbooks }: BookCardProps) => {
             {list_books.map((book) => (
                 <div
                     key={book.id}
-                    className={`bg-white hover:scale-95 rounded-2xl ${lexendDeca.className} shadow-lg hover:shadow-2xl transition duration-300 overflow-hidden`}
+                    className={`bg-white hover:scale-105 rounded-2xl ${lexendDeca.className} shadow-lg hover:shadow-2xl transition duration-300`}
                 >
-                    <div className="h-40 bg-gradient-to-br from-indigo-200 to-indigo-400 flex items-center justify-center text-white">
+                    <div className="h-40 bg-gradient-to-br from-indigo-200 to-indigo-400 flex items-center justify-center text-white rounded-t-2xl">
                         <FaBookOpen size={60} />
                     </div>
-                    <div className={`p-4 flex flex-col space-y-2`}>
-                        <h2 className="text-xl font-bold text-gray-800 truncate">{book.title}</h2>
+                    <div className="p-4 flex flex-col space-y-2">
+                        <h2 className="text-xl font-bold text-gray-800 line-clamp-2">{book.title}</h2>
                         <span className="inline-block bg-indigo-100 text-indigo-700 text-xs font-semibold px-2 py-1 rounded-full w-fit">
                             {book.genre}
                         </span>
                         <p className="text-gray-600 text-sm">by {book.author}</p>
                     </div>
-                    <div className=" flex justify-between items-center px-4 pb-4">
-                        <button onClick={() => handleOpen(book.id)} className={`bg-red-600 cursor-pointer hover:bg-red-700 text-white font-semibold px-4 py-2 rounded-lg flex items-center space-x-2 ${lexendDeca.className}`}>
+                    <div className="flex flex-col sm:flex-row justify-between items-center gap-2 px-4 pb-4">
+                        <button
+                            onClick={() => handleOpen(book.id)}
+                            className={`bg-red-600 cursor-pointer hover:bg-red-700 text-white font-semibold px-4 py-2 rounded-lg flex items-center space-x-2 ${lexendDeca.className}`}
+                        >
                             <FaTrash className="w-5 h-5" />
                             <span>Delete</span>
                         </button>
-                        <Link href={`/dashboard/book/${book.id}`} className={`bg-slate-700 cursor-pointer hover:bg-slate-800 text-white font-semibold px-4 py-2 rounded-lg flex items-center space-x-2 ${lexendDeca.className}`}>
+                        <Link
+                            href={`/dashboard/book/${book.id}`}
+                            className={`bg-slate-700 cursor-pointer hover:bg-slate-800 text-white font-semibold px-4 py-2 rounded-lg flex items-center space-x-2 ${lexendDeca.className}`}
+                        >
                             <BiDetail className="w-5 h-5" />
                             <span>Detail</span>
                         </Link>
                     </div>
                 </div>
+
             ))}
 
             {showModal && bookId && (
                 <DeleteModal
                     bookid={bookId}
                     onClose={() => setshowModal(false)}
-                    onDelete={() => refreshbooks()} // need to pick refresh data through callback upon deletion
+                    onDelete={() => refreshbooks()} // need to pick fresh data through callback upon deletion(trigger)
                 />
             )}
         </div>

@@ -19,7 +19,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="bg-gradient-to-r from-black via-gray-900 to-black min-h-screen">
+      <div className="bg-gradient-to-r from-black via-gray-900  to-black min-h-screen">
         <Landingweb />
       </div>
     </>

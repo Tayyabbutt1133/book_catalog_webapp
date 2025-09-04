@@ -19,7 +19,7 @@ const Navbar = () => {
                     Books Catalog App
                     </div>
                     </Link>
-                <div className="flex justify-center items-center space-x-4">
+                <div className="flex md:flex-row flex-col gap-4 justify-center items-center space-x-4">
                     {session ? (
                         <>
                             <button
