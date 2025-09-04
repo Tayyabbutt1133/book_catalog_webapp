@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import book_cover from '@/public/assets/book_hero.png'
 import Loginbtn from "@/app/components/authentication/login-btn";
