@@ -2,10 +2,7 @@ import { NextRequest, NextResponse } from "next/server"
 import { StatusCodes } from "http-status-codes"
 import { prisma } from "@/app/utils/prisma"
 
-export async function GET(
-    req: NextRequest,
-    { params }: { params: Promise<{ id: string }> }
-) {
+export async function GET( req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
     try {
         const resolvedParams = await params
         const id = Number(resolvedParams.id)
@@ -36,20 +33,16 @@ export async function GET(
         }, { status: StatusCodes.OK })
 
     } catch (error) {
-        console.error('GET /api/books/[id] error:', error)
+        console.error('Error:', error)
         return NextResponse.json({
             message: "Error Occurred"
         }, { status: StatusCodes.INTERNAL_SERVER_ERROR })
     }
 }
 
-// ✅ Same fix for DELETE
-export async function DELETE(
-    req: NextRequest,
-    { params }: { params: Promise<{ id: string }> }
-) {
+
+export async function DELETE( req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
     try {
-        // ✅ MUST await params before using
         const resolvedParams = await params
         const id = Number(resolvedParams.id)
 
@@ -71,7 +64,7 @@ export async function DELETE(
         }, { status: StatusCodes.OK })
 
     } catch (error) {
-        console.error('DELETE /api/books/[id] error:', error)
+        console.error('Error:', error)
         return NextResponse.json({
             message: "Error Occurred"
         }, { status: StatusCodes.INTERNAL_SERVER_ERROR })

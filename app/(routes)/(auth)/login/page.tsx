@@ -15,7 +15,7 @@ const Login = () => {
   }
 
   return (
-    <div className="flex flex-col md:flex-row min-h-screen">
+    <div className="flex flex-col md:flex-row bg-gradient-to-r from-black via-gray-900 to-black  min-h-screen">
       <div className="w-full md:w-1/2 flex items-center justify-center p-4">
         <Image
           src={book_cover}

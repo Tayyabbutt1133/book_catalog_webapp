@@ -15,7 +15,7 @@ const DeleteModal = ({ bookid, onClose, onDelete }: DeleteModalProps) => {
 
     const handleDelete = async () => {
         try {
-            const res = await axios.delete(`http://localhost:3000/api/books/${bookid}`);
+            const res = await axios.delete(`${process.env.NEXT_PUBLIC_BASE_URL}/api/books/${bookid}`);
             if (res.status === 200) {
                 toast.success('Book deleted successfully!');
                 onClose();
