@@ -1,14 +1,13 @@
-import { NextResponse } from "next/server"
+import { NextRequest, NextResponse } from "next/server"
 import { StatusCodes } from "http-status-codes"
-import { id } from "zod/locales"
 import { prisma } from "@/app/utils/prisma"
 
 
 
 
-export async function GET(req: Request, { params }: { params: { id: string } }) {
+export async function GET(req: NextRequest, { params }: { params: { id: string } }) {
 
-    console.log(id)
+    // console.log(id)
 
     try {
 
@@ -38,9 +37,7 @@ export async function GET(req: Request, { params }: { params: { id: string } }) 
 
 
 
-export async function DELETE(req: Request, { params }: { params: { id: string } }) {
-
-    console.log(id)
+export async function DELETE(req: NextRequest, { params }: { params: { id: string } }) {
 
     try {
 
